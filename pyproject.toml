@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "apisample-fastapi"
+version = "0.1.0"
+description = "Sample of CRUD API with FastAPI"
+authors = ["kustiktmkirill <happykust@list.ru>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.83.0"
+ormar = {extras = ["postgresql"], version = "^0.11.3"}
+fastapi-crudrouter = "^0.8.5"
+uvicorn = "^0.18.3"
+cryptography = "^38.0.1"
+python-jose = "^3.3.0"
+python-multipart = "^0.0.5"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
