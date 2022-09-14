@@ -28,10 +28,14 @@ AUTH_CRUD_DEPENDENCIES = [Depends(get_current_user)]
 
 # Create our CRUD router
 crud_router = OrmarCRUDRouterUpdated(
+    # Set User ormar model as schema to CRUD
     schema=User,
+    # Set URL prefix for CRUD router
     prefix='users',
+    # Schema to create and update User model
     create_schema=UserCreateUpdateSchema,
     update_schema=UserCreateUpdateSchema,
+    # Set authentication dependency to all methods, exclude POST (Create)
     update_route=AUTH_CRUD_DEPENDENCIES,
     delete_all_route=AUTH_CRUD_DEPENDENCIES,
     delete_one_route=AUTH_CRUD_DEPENDENCIES,
