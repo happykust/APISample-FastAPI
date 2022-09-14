@@ -2,7 +2,7 @@ from typing import Union
 from datetime import timedelta
 from fastapi import FastAPI, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
-from fastapi_crudrouter import OrmarCRUDRouter
+from app.routers import OrmarCRUDRouterUpdated
 
 from app.auth import authenticate_user, create_access_token, get_current_user, ACCESS_TOKEN_EXPIRE_MINUTES
 from app.database.database import database, metadata, engine
@@ -27,7 +27,7 @@ metadata.create_all(engine)
 AUTH_CRUD_DEPENDENCIES = [Depends(get_current_user)]
 
 # Create our CRUD router
-crud_router = OrmarCRUDRouter(
+crud_router = OrmarCRUDRouterUpdated(
     schema=User,
     prefix='users',
     create_schema=UserCreateUpdateSchema,
